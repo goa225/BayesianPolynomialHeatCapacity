@@ -26,7 +26,7 @@ title(main = "0 T")
 
 # # Standardize Temperature Data & Plot
 d$Temperature.s <- (d$Temperature - mean(d$Temperature)) /sd(d$Temperature)
-plot(HeatCap ~ Temperature.s, data = d, lwd=0,pch=6)
+plot(HeatCap ~ Temperature.s, data = d, log='y', lwd=0,pch=6)
 points(d$Temperature.s[1:30], d$HeatCap[1:30], col = "blue",lwd=1.5,pch=6)
 points(d$Temperature.s[31:60], d$HeatCap[31:60], col = "orange",lwd=1.5,pch=6)
 points(d$Temperature.s[61:90], d$HeatCap[61:90], col = "green",lwd=1.5,pch=6)
@@ -61,7 +61,7 @@ mu.PI <- apply(mu, 2, PI, prob = 0.95)
 sim.HeatCap <- sim(m4.6, data = pred_dat)
 HeatCap.PI <- apply(sim.HeatCap, 2, PI, prob = 0.95)
   # Convert axis back to original
-plot(HeatCap ~ Temperature.s, d, pch=6, lwd=0, xaxt="n",
+plot(HeatCap ~ Temperature.s, d, log='y', pch=6, lwd=0, xaxt="n",
      xlab="Temperature (K)", ylab=parse(text='Heat~Capacity~"(J"~mol^{-1}~K^{-1}*")"'))
 points(d$Temperature.s[1:30], d$HeatCap[1:30], col = "blue",lwd=1.5,pch=6)
 points(d$Temperature.s[31:60], d$HeatCap[31:60], col = "orange",lwd=1.5,pch=6)
@@ -105,7 +105,7 @@ mu.PI <- apply(mu, 2, PI, prob = 0.95)
 sim.HeatCap <- sim(m4.7, data = pred_dat)
 HeatCap.PI <- apply(sim.HeatCap, 2, PI, prob = 0.95)
 # Convert axis back to original
-plot(HeatCap ~ Temperature.s, d, pch=6,lwd=0, xaxt="n",
+plot(HeatCap ~ Temperature.s, d, log='y', pch=6,lwd=0, xaxt="n",
      xlab="Temperature (K)", ylab=parse(text='Heat~Capacity~"(J"~mol^{-1}~K^{-1}*")"'))
 points(d$Temperature.s[1:30], d$HeatCap[1:30], col = "blue",lwd=1.5,pch=6)
 points(d$Temperature.s[31:60], d$HeatCap[31:60], col = "orange",lwd=1.5,pch=6)
@@ -118,3 +118,4 @@ axis(side = 1, at = at, labels = round(labels,1))
 lines(Temperature.seq, mu.mean)
 shade(mu.PI, Temperature.seq, col = "red")
 shade(HeatCap.PI, Temperature.seq)
+
