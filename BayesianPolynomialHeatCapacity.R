@@ -6,7 +6,7 @@
 
 # BAYESIAN POLYNOMIAL REGRESSION OF MAGNETIC-FIELD-DEPENDENT HEAT CAPACITY DATA
 
-
+# # Original Code Written by Sergio Marrero
 # # Adapted from https://rpubs.com/SergioMarrero/352161
 
 # Requires base, cmdstanr, datasets, devtolls, digest, graphics, grDevices, 
